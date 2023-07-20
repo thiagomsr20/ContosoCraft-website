@@ -15,7 +15,7 @@ namespace ContosoCraft.Models;
 
 public class Produto
 {
-    [JsonPropertyName("img")]
+    [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
 
     [JsonPropertyName("maker")]
@@ -34,6 +34,15 @@ public class Produto
     public string Description { get; set; } = string.Empty;
     public int[] Rating { get; set; } = new int[5];
 
+    /* 
+        Polimorfismo no método ToString para tornar os objetos no formato JSON
+        Reescrever o método ToString é importante para retornar representações
+        mais legíveis de objetos
+        Nesse caso, será serializando os objetos para o JSON
+        Mas poderia ser uma simples string de retorno, por exemplo:
+            
+            public override string ToString() => $"Id : {id}; Maker: {Maker}"
+    */
     public override string ToString() => JsonSerializer.Serialize<Produto>(this);
 
 }
