@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DDjFCbphjEJpG4KRqWPhV7B185jXk7m01LPmvo5ALw6htvOwuVu+0lTLpK9dtVdAJzCSjEK9wTP1P+jdaF8MbA==",
+  "dgSpecHash": "cgul/lw5j66n6EcxwHdJ+bAMfa+VVUPu2koKelkVDk20SVkFIsEwA6gPGvu/KwOBKg1zDHC+TM3wrDjhqDspnA==",
   "success": true,
-  "projectFilePath": "/home/thiago/Desktop/GitHub/Website-Completo-ASP.NET-Razor/cs-files/cs-files.csproj",
+  "projectFilePath": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/cs-files.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

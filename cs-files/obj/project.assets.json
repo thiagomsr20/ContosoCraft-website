@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/thiago/Desktop/GitHub/Website-Completo-ASP.NET-Razor/cs-files/cs-files.csproj",
+      "projectUniqueName": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/cs-files.csproj",
       "projectName": "cs-files",
-      "projectPath": "/home/thiago/Desktop/GitHub/Website-Completo-ASP.NET-Razor/cs-files/cs-files.csproj",
+      "projectPath": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/cs-files.csproj",
       "packagesPath": "/home/thiago/.nuget/packages/",
-      "outputPath": "/home/thiago/Desktop/GitHub/Website-Completo-ASP.NET-Razor/cs-files/obj/",
+      "outputPath": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/thiago/.nuget/NuGet/NuGet.Config"
@@ -62,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.108/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.109/RuntimeIdentifierGraph.json"
       }
     }
   }
