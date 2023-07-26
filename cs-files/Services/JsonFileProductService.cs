@@ -23,9 +23,9 @@ namespace ContosoCrafts.Services
         }
 
         // Retorna uma lista enumerável de produtos no formato JSON
-        public IEnumerable<Product>? GetProducts()
+        public IEnumerable<Product> GetProducts()
         {
-            using var jsonFileReader = File.OpenText(JsonFileName);
+            var jsonFileReader = File.OpenText(JsonFileName);
             JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true, WriteIndented = true};
 
             return JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(), options);
