@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/cs-files.csproj",
-      "projectName": "cs-files",
-      "projectPath": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/cs-files.csproj",
+      "projectUniqueName": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/ContosoCrafts.csproj",
+      "projectName": "ContosoCrafts",
+      "projectPath": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/ContosoCrafts.csproj",
       "packagesPath": "/home/thiago/.nuget/packages/",
       "outputPath": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/obj/",
       "projectStyle": "PackageReference",
