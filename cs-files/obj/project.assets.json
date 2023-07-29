@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/home/thiago/.nuget/packages/": {}
+    "C:\\Users\\thiag\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/ContosoCrafts.csproj",
+      "projectUniqueName": "c:\\Users\\thiag\\OneDrive\\Documentos\\Repositorios\\ContosoCraft-website\\cs-files\\ContosoCrafts.csproj",
       "projectName": "ContosoCrafts",
-      "projectPath": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/ContosoCrafts.csproj",
-      "packagesPath": "/home/thiago/.nuget/packages/",
-      "outputPath": "/home/thiago/Desktop/GitHub/ContosoCraft-website/cs-files/obj/",
+      "projectPath": "c:\\Users\\thiag\\OneDrive\\Documentos\\Repositorios\\ContosoCraft-website\\cs-files\\ContosoCrafts.csproj",
+      "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\thiag\\OneDrive\\Documentos\\Repositorios\\ContosoCraft-website\\cs-files\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/thiago/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -62,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.109/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
