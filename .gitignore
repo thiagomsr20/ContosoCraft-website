@@ -38,6 +38,11 @@ bld/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
+#Arquivos a serem ignorados em projetos .NET, são arquivos de cache
+project.assets.json
+project.nuget.cache
+obj/
+
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
