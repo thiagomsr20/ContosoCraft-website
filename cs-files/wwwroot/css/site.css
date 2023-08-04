@@ -24,11 +24,14 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .card-columns {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
   margin: 10px;
+  width: min(100%, 500px);
   border-radius: 15px;
 }
 
