@@ -18,7 +18,7 @@ for details on configuring this project to bundle and minify static web assets. 
   background: #fbfafd;
 }
 
-.card-body {
+.card-body, .card {
   border-radius: 15px;
 }
 
@@ -30,9 +30,9 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .card {
-  margin: 10px;
-  width: min(100%, 500px);
-  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
+  width: min(100%, 630px);
 }
 
 .card-img {
@@ -63,6 +63,7 @@ for details on configuring this project to bundle and minify static web assets. 
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(37, 33, 82, .12), 0 4px 8px rgba(37, 33, 82, .06);
   transition: 250ms ease-in-out;
+  z-index: 1;
 }
 
 a.navbar-brand {
