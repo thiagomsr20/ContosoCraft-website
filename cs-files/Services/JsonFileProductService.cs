@@ -32,5 +32,37 @@ namespace ContosoCrafts.Services
                 return JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(), options);
             }
         }
+
+        public void AddRating(string productId, int rating)
+        {
+            IEnumerable<Product> products = GetProducts();
+
+            Product product = products.First(x => x.Id == productId);
+
+            if(product.Ratings == null) product.Ratings = new int[] { rating };
+
+            else
+            {
+                var ratings = product.Ratings.ToList();
+                // Inserir nova avaliação, caso já haver uma avaliação anterior
+                ratings.RemoveAll();
+                ratings.Add(rating);
+
+                ratings.ToArray();
+            }
+
+            // Registrar a avaliação no database (JSON file)
+            using (var outputStream = File.OpenWrite(JsonFileName))
+            {
+                JsonSerializer.Serialize<IEnumerable<Product>>(
+                    new Utf8JsonWriter(outputStream,new JsonWriterOptions{
+                        Indented = true,
+                        SkipValidation = true
+                    }),
+                    products
+                )
+            }
+
+        }
     }
 }
