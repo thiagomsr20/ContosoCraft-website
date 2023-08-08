@@ -45,7 +45,7 @@ namespace ContosoCrafts.Services
             {
                 var ratings = product.Ratings.ToList();
                 // Inserir nova avaliação, caso já haver uma avaliação anterior
-                ratings.RemoveAll();
+                ratings.Clear();
                 ratings.Add(rating);
 
                 ratings.ToArray();
@@ -55,12 +55,13 @@ namespace ContosoCrafts.Services
             using (var outputStream = File.OpenWrite(JsonFileName))
             {
                 JsonSerializer.Serialize<IEnumerable<Product>>(
-                    new Utf8JsonWriter(outputStream,new JsonWriterOptions{
+                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                    {
                         Indented = true,
                         SkipValidation = true
                     }),
                     products
-                )
+                );
             }
 
         }
