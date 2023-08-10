@@ -1,0 +1,15 @@
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\bin\Debug\net7.0\teste.exe
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\bin\Debug\net7.0\teste.deps.json
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\bin\Debug\net7.0\teste.runtimeconfig.json
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\bin\Debug\net7.0\teste.dll
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\bin\Debug\net7.0\teste.pdb
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\obj\Debug\net7.0\teste.csproj.AssemblyReference.cache
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\obj\Debug\net7.0\teste.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\obj\Debug\net7.0\teste.AssemblyInfoInputs.cache
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\obj\Debug\net7.0\teste.AssemblyInfo.cs
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\obj\Debug\net7.0\teste.csproj.CoreCompileInputs.cache
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\obj\Debug\net7.0\teste.dll
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\obj\Debug\net7.0\refint\teste.dll
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\obj\Debug\net7.0\teste.pdb
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\obj\Debug\net7.0\teste.genruntimeconfig.cache
+c:\Users\thiago.maciel\OneDrive - IBR Industria Brasileira de Redutores LTDA\Área de Trabalho\vscode\JSONserialize\teste\obj\Debug\net7.0\ref\teste.dll
