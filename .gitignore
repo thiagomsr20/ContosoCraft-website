@@ -42,7 +42,7 @@ bld/
 project.assets.json
 project.nuget.cache
 obj/
-
+din/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
