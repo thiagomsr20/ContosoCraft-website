@@ -41,7 +41,9 @@ bld/
 #Arquivos a serem ignorados em projetos .NET, são arquivos de cache
 project.assets.json
 project.nuget.cache
+cs-files/obj/
 obj/
+cs-files/din/
 din/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
