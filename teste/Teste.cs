@@ -2,13 +2,13 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace teste.model;
-public class testeModelo
+public class TesteModelo
 {
     [JsonPropertyName("id")]
-    public string id { get; set; }
+    public string Id { get; set; }
 
     [JsonPropertyName("value")]
-    public double value { get; set; }
+    public double Value { get; set; }
 
-    public override string ToString() => JsonSerializer.Serialize<testeModelo>(this);
+    public override string ToString() => JsonSerializer.Serialize<TesteModelo>(this);
 }
