@@ -1,14 +1,22 @@
 [
-    {
-        "id":"teste2",
-        "value":89489.00
-    },
-    {
-        "id":"teste3",
-        "value":54856.00
-    },
-    {
-        "id":"teste4",
-        "value":4856.00
-    }
+  {
+    "id": "teste2",
+    "value": 89489
+  },
+  {
+    "id": "teste3",
+    "value": 54856
+  },
+  {
+    "id": "teste4",
+    "value": 4856
+  },
+  {
+    "id": "Marlon",
+    "value": 4000
+  },
+  {
+    "id": "Thiago",
+    "value": 2000
+  }
 ]
