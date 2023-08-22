@@ -5,46 +5,55 @@ using teste.model;
 
 namespace ProgramSpace;
 
-public class testeModeloServices
+public class TesteModeloServices
 {
-    public string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-    public string jsonFile
-    {
-        get { return Path.Combine(desktopPath, "github", "contosocraft-website", "teste", "teste.json"); }
-    }
+    public string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+    public string JsonFile => Path.Combine(DesktopPath, "github", "contosocraft-website", "teste", "teste.json");
 
-    public IEnumerable<testeModelo>? GettesteModelo()
+    public List<TesteModelo> GetModelos()
     {
-        using (var readFile = File.OpenRead(jsonFile))
+        using (var readFile = File.OpenRead(JsonFile))
         {
-            return JsonSerializer.Deserialize<testeModelo[]>(readFile, new JsonSerializerOptions { WriteIndented = true });
+            return JsonSerializer.Deserialize<List<TesteModelo>>(readFile, new JsonSerializerOptions { WriteIndented = true });
         }
     }
 
-    // public void AddtesteModelo(string id, double value)
-    // {
-    //     IEnumerable<testeModelo>? testeModelo = GettesteModelo();
+    public void AddTesteModelo(string id, double value)
+    {
+        List<TesteModelo> testeModeloInstancia = GetModelos();
+        var testeModel = new TesteModelo() { Id = id, Value = value };
 
-    //     using (var outputStream = File.OpenWrite(jsonFile))
-    //     {
-    //         JsonSerializer.Serialize(testeModelo, outputStream);
-    //     }
+        testeModeloInstancia.Add(testeModel);
 
-    // }
+        using (var outputStream = File.OpenWrite(JsonFile))
+        {
+            JsonSerializer.Serialize<IEnumerable<TesteModelo>>(
+                new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                {
+                    Indented = true,
+                    SkipValidation = true
+                }),
+                testeModeloInstancia
+            );
+        }
+    }
 }
+
 
 class ProgramSpace
 {
     static void Main(string[] args)
     {
-        testeModeloServices service = new testeModeloServices();
+        TesteModeloServices service = new TesteModeloServices();
+        service.AddTesteModelo("Marlon", 4000.00);
+        service.AddTesteModelo("Thiago", 2000.00);
 
-        foreach (var testeModelo in service.GettesteModelo())
+        foreach (var testeModelo in service.GetModelos())
         {
-            Console.WriteLine(testeModelo.id);
-            Console.WriteLine(testeModelo.value);
+            Console.WriteLine(testeModelo.Id);
+            Console.WriteLine(testeModelo.Value);
         }
-        Console.WriteLine($"That is your path: {service.jsonFile}");
-        
+        Console.WriteLine($"That is your path: {service.JsonFile}");
+
     }
 }
