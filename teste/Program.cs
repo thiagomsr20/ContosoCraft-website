@@ -1,56 +1,49 @@
-﻿using System.Text.Json;
+﻿using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
 using System.Text.Json.Serialization;
+using teste.model;
 
 namespace ProgramSpace;
 
-public class testeModels
+public class testeModeloServices
 {
-    [JsonPropertyName("id")]
-    public string id { get; set; }
-
-    [JsonPropertyName("value")]
-    public double value { get; set; }
-}
-
-public class testeServices
-{
-    string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-    private string jsonFile
+    public string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+    public string jsonFile
     {
-        get {return Path.Combine(desktopPath, "vscode", "JSONserialize", "teste", "Teste.json");}
+        get { return Path.Combine(desktopPath, "github", "contosocraft-website", "teste", "teste.json"); }
     }
 
-    public IEnumerable<testeModels>? GetTeste()
+    public IEnumerable<testeModelo>? GettesteModelo()
     {
         using (var readFile = File.OpenRead(jsonFile))
         {
-            return JsonSerializer.Deserialize<testeModels[]>(readFile, new JsonSerializerOptions { WriteIndented = true });
+            return JsonSerializer.Deserialize<testeModelo[]>(readFile, new JsonSerializerOptions { WriteIndented = true });
         }
     }
 
-    public void AddTeste(string id, double value)
-    {
-        testeModels x = new testeModels();
-        x.id = id;
-        x.value = value;
+    // public void AddtesteModelo(string id, double value)
+    // {
+    //     IEnumerable<testeModelo>? testeModelo = GettesteModelo();
 
-        using(var writeFile = File.OpenWrite(jsonFile))
-        {
-            JsonSerializer.Serialize<IE>(writeFile, x);
-        }
+    //     using (var outputStream = File.OpenWrite(jsonFile))
+    //     {
+    //         JsonSerializer.Serialize(testeModelo, outputStream);
+    //     }
 
-    }
+    // }
 }
 
 class ProgramSpace
 {
     static void Main(string[] args)
     {
-        testeServices serviço = new testeServices();
-        foreach(var teste in serviço.GetTeste())
+        testeModeloServices service = new testeModeloServices();
+
+        foreach (var testeModelo in service.GettesteModelo())
         {
-            Console.WriteLine(teste.id);
-            Console.WriteLine(teste.value);
+            Console.WriteLine(testeModelo.id);
+            Console.WriteLine(testeModelo.value);
         }
+        Console.WriteLine($"That is your path: {service.jsonFile}");
     }
 }
