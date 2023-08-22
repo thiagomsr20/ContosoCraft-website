@@ -9,5 +9,6 @@ public class testeModelo
 
     [JsonPropertyName("value")]
     public double value { get; set; }
+
     public override string ToString() => JsonSerializer.Serialize<testeModelo>(this);
 }
