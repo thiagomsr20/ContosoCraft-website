@@ -1,4 +1,5 @@
 ﻿using System.Dynamic;
+using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -26,7 +27,14 @@ public class TesteModeloServices
     public void AddTesteModelo(string id, double value)
     {
         List<TesteModelo> TestModelList = GetModels();
-        TestModelList.Add(new TesteModelo() { Id = id, Value = value });
+        
+        if(TestModelList.FirstOrDefault(x => x.Id == id, null) is null)
+        {
+            TestModelList.Add(new TesteModelo() { Id = id, Value = value });
+        }
+        else{
+            throw new Exception("Element already exist!");
+        }
 
         using (var outputStream = File.OpenWrite(JsonFile))
         {
@@ -44,7 +52,7 @@ public class TesteModeloServices
     // Método RemoveTestModel ainda incompleto
     public void RemoveTestModel(string id, List<TesteModelo> testeModelosList)
     {
-        var product = testeModelosList.First(product => product.Id == id);
+        var product = testeModelosList.FirstOrDefault(product => product.Id == id, null);
         if (product is null) throw new ArgumentNullException();
 
         testeModelosList.Remove(product);
@@ -78,7 +86,7 @@ class ProgramSpaced
     {
         TesteModeloServices service = new TesteModeloServices();
         List<TesteModelo> lista = service.GetModels();
-        // service.RemoveTestModel("teste4", lista);
+        service.RemoveTestModel("Marlon", lista);
         service.AddTesteModelo("wer2", 351);
         Console.WriteLine(service.GetOneModel("Thiago").ToString());
 
