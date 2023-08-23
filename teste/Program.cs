@@ -1,8 +1,4 @@
-﻿using System.Dynamic;
-using System.Globalization;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json;
 using teste.model;
 
 namespace ProgramSpace;
@@ -53,7 +49,7 @@ public class TesteModeloServices
     public void RemoveTestModel(string id, List<TesteModelo> testeModelosList)
     {
         var product = testeModelosList.FirstOrDefault(product => product.Id == id, null);
-        if (product is null) throw new ArgumentNullException();
+        if (product is null) throw new NullReferenceException("Element doesnt exist");
 
         testeModelosList.Remove(product);
 
