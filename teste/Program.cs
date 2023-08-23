@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Dynamic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using teste.model;
@@ -20,10 +21,10 @@ public class TesteModeloServices
 
     public void AddTesteModelo(string id, double value)
     {
-        List<TesteModelo> testeModeloInstancia = GetModelos();
+        List<TesteModelo> TestModelList = GetModelos();
         var testeModel = new TesteModelo() { Id = id, Value = value };
 
-        testeModeloInstancia.Add(testeModel);
+        TestModelList.Add(testeModel);
 
         using (var outputStream = File.OpenWrite(JsonFile))
         {
@@ -33,9 +34,17 @@ public class TesteModeloServices
                     Indented = true,
                     SkipValidation = true
                 }),
-                testeModeloInstancia
+                TestModelList
             );
         }
+    }
+
+    public void RemoveTestModel(string id)
+    {
+        if(string.IsNullOrEmpty(id)) throw new Exception("Null or empty string input");
+
+        List<TesteModelo> TestModelList = GetModelos();
+        TestModelList.Remove(TestModelList.First(product => product.Id == id));
     }
 }
 
@@ -45,8 +54,9 @@ class ProgramSpace
     static void Main(string[] args)
     {
         TesteModeloServices service = new TesteModeloServices();
-        service.AddTesteModelo("Marlon", 4000.00);
-        service.AddTesteModelo("Thiago", 2000.00);
+        service.RemoveTestModel("Marlon");
+        service.RemoveTestModel("Thiago");
+        service.RemoveTestModel("");
 
         foreach (var testeModelo in service.GetModelos())
         {
