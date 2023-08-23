@@ -10,7 +10,7 @@ public class TesteModeloServices
 {
     public string JsonFile => Path.Combine("Data/Teste.json");
 
-    public List<TesteModelo> GetModelos()
+    public List<TesteModelo> GetModels()
     {
         using (var readFile = File.OpenRead(JsonFile))
         {
@@ -18,12 +18,15 @@ public class TesteModeloServices
         }
     }
 
+    public TesteModelo GetOneModel(string id)
+    {
+        return GetModels().FirstOrDefault(x => x.Id == id);
+    }
+
     public void AddTesteModelo(string id, double value)
     {
-        List<TesteModelo> TestModelList = GetModelos();
-        var testeModel = new TesteModelo() { Id = id, Value = value };
-
-        TestModelList.Add(testeModel);
+        List<TesteModelo> TestModelList = GetModels();
+        TestModelList.Add(new TesteModelo() { Id = id, Value = value });
 
         using (var outputStream = File.OpenWrite(JsonFile))
         {
@@ -46,6 +49,14 @@ public class TesteModeloServices
 
         testeModelosList.Remove(product);
 
+        // Limpar todo conteúdo do database antes de escreve um novo formatado
+        // Não é uma boa ideia esse método, pesqueisar outro
+        // Mas serviu para identificar que o problema é que ele sobreescreve
+        // o que já existe
+        File.WriteAllText(JsonFile, "");
+
+        // Tentar usar métodos LINQ para remover informações específicas
+
         using (var outputStream = File.OpenWrite(JsonFile))
         {
             JsonSerializer.Serialize<List<TesteModelo>>(
@@ -66,8 +77,10 @@ class ProgramSpaced
     static void Main(string[] args)
     {
         TesteModeloServices service = new TesteModeloServices();
-        List<TesteModelo> lista = service.GetModelos();
-        service.RemoveTestModel("Thiago", lista);
+        List<TesteModelo> lista = service.GetModels();
+        // service.RemoveTestModel("teste4", lista);
+        service.AddTesteModelo("wer2", 351);
+        Console.WriteLine(service.GetOneModel("Thiago").ToString());
 
         foreach (var itens in lista)
         {
