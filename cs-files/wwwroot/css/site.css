@@ -15,7 +15,6 @@ for details on configuring this project to bundle and minify static web assets. 
 .card-columns .card-body {
   height: 100px;
   font-family: 'Nunito', sans-serif;
-  background: #fbfafd;
 }
 
 .card-body, .card {
@@ -36,7 +35,7 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .card-img {
-  border-radius: 15px 15px 0 0;
+  border-radius: 10px 10px 0 0;
   height: 200px;
   vertical-align: bottom;
   background-position: center;
