@@ -53,13 +53,11 @@ public class TesteModeloServices
 
         testeModelosList.Remove(product);
 
-        // Limpar todo conteúdo do database antes de escreve um novo formatado
-        // Não é uma boa ideia esse método, pesqueisar outro
-        // Mas serviu para identificar que o problema é que ele sobreescreve
-        // o que já existe
+        /*
+            Em uma aplicação com um banco de dados convecional, essa abordagem não é a ideial,
+            mas como aqui estou utilizando um arquivo de texto, atende.
+        */
         File.WriteAllText(JsonFile, "");
-
-        // Tentar usar métodos LINQ para remover informações específicas
 
         using (var outputStream = File.OpenWrite(JsonFile))
         {
@@ -82,8 +80,8 @@ class ProgramSpaced
     {
         TesteModeloServices service = new TesteModeloServices();
         List<TesteModelo> lista = service.GetModels();
-        service.RemoveTestModel("Marlon", lista);
-        service.AddTesteModelo("wer2", 351);
+        service.RemoveTestModel("teste3", lista);
+
         Console.WriteLine(service.GetOneModel("Thiago").ToString());
 
         foreach (var itens in lista)
