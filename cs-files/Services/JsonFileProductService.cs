@@ -39,17 +39,9 @@ namespace ContosoCrafts.Services
 
             Product product = products.First(x => x.Id == productId);
 
-            if(product.Ratings == null) product.Ratings = new int[] { rating };
+            if(rating > 10) return;
 
-            else
-            {
-                var ratings = product.Ratings.ToList();
-                // Inserir nova avaliação, caso já haver uma avaliação anterior
-                ratings.Clear();
-                ratings.Add(rating);
-
-                ratings.ToArray();
-            }
+            product.Ratings.Add(rating);
 
             // Registrar a avaliação no database (JSON file)
             using (var outputStream = File.OpenWrite(JsonFileName))
