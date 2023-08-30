@@ -14,23 +14,26 @@ public class ProductController : ControllerBase
         this.ProductService = productService;
     }
 
-    public JsonFileProductService ProductService { get; }
+    public JsonFileProductService ProductService { get; set;}
 
     [HttpGet]
-    public IEnumerable<Product>? Get()
+    public List<Product>? Get()
     {
         return ProductService.GetProducts();
     }
 
     [Route("rate")]
-    [HttpGet]
-    public ActionResult Get(
-        [FromQuery] string productId, 
-        [FromQuery] int rating
-    )
+    [HttpPut]
+    // localhost:5262/product/rate?productid="jenlooper-cactus"&rating=4
+    public ActionResult Put(
+        [FromQuery] string productId,
+        [FromQuery] int rating)
     {
         var product = ProductService.GetProducts().FirstOrDefault(x => x.Id == productId);
-        if (product is null) return NotFound();
+        if (product == null)
+        {
+            return NotFound();
+        }
 
         ProductService.AddRating(productId, rating);
 

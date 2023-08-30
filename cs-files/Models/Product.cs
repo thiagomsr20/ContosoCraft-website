@@ -22,7 +22,7 @@ public class Product
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
-    public List<int> Ratings { get; set; } = new();
+    public List<int>? Ratings { get; set; }
 
     public override string ToString() => JsonSerializer.Serialize<Product>(this);
 }

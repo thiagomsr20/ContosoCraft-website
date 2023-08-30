@@ -16,30 +16,27 @@ namespace ContosoCrafts.Services
 
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        private string JsonFileName
-        {
-            // Apontando o Get do arquivo JSON para a pasta wwwroot/data/product.json
-            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); } // wwwroot/data/products.json
-        }
+        // Apontando o Get do arquivo JSON para a pasta wwwroot/data/product.json
+        // wwwroot/data/products.json
+        private string JsonFileName => Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); 
 
         // Retorna uma lista enumerável de produtos no formato JSON
-        public IEnumerable<Product>? GetProducts()
+        public List<Product> GetProducts()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
                 JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true, WriteIndented = true};
 
-                return JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(), options);
+                return JsonSerializer.Deserialize<List<Product>>(jsonFileReader.ReadToEnd(), options);
             }
         }
 
         public void AddRating(string productId, int rating)
         {
             IEnumerable<Product> products = GetProducts();
+            var product = products.First(x => x.Id == productId);
 
-            Product product = products.First(x => x.Id == productId);
-
-            if(rating > 10) return;
+            if(product.Ratings is null) new List<int>(rating);
 
             product.Ratings.Add(rating);
 
