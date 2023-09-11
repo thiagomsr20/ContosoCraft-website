@@ -5,15 +5,6 @@
     ViewData["Title"] = "Home page";
 }
 
-@foreach(var x in Model.Products)
-{
-    @if(x.Ratings is null) 
-    {
-        <p>Sem avaliações para esse produto</p>
-    }
-    <p>@x.Ratings.Count</p>
-}
-
 <div class="card-columns">
     @foreach (var product in Model.Products)
     {
