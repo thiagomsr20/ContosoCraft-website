@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using ContosoCrafts.Services;
 using ContosoCrafts.Models;
+using System.Net;
 
 namespace ContosoCrafts.Controller;
 
@@ -17,22 +18,31 @@ public class ProductController : ControllerBase
     public JsonFileProductService ProductService { get; set;}
 
     [HttpGet]
-    public List<Product>? Get()
+    public ActionResult<List<Product>> Get()
     {
-        return ProductService.GetProducts();
+        if(ProductService.GetProducts() is null) return NotFound();
+
+        return Ok(ProductService.GetProducts());
     }
 
     [Route("rate")]
-    [HttpPut]
+    [HttpPut("{id}")]
     // localhost:5262/product/rate?productid="jenlooper-cactus"&rating=4
+
+    // Verificar, ID retordana no URL está assim "\"jenlooper-cactus\""
     public ActionResult Put(
         [FromQuery] string productId,
         [FromQuery] int rating)
     {
-        var product = ProductService.GetProducts().FirstOrDefault(x => x.Id == productId);
-        if (product == null)
+        List<Product>? products = ProductService.GetProducts();
+
+        // S[o retorna a mensagem, verificar maneira de retornar mensagem e ActionResult default return
+        if(products is null) return NotFound("null return on get database");
+
+        Product? product = products.FirstOrDefault(x => x.Id == productId);
+        if(product == null)
         {
-            return NotFound();
+            return NotFound("Null return on get a specific product by ID");
         }
 
         ProductService.AddRating(productId, rating);
