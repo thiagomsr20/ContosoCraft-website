@@ -21,7 +21,7 @@ namespace ContosoCrafts.Services
         private string JsonFileName => Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); 
 
         // Retorna uma lista enumerável de produtos no formato JSON
-        public List<Product> GetProducts()
+        public List<Product>? GetProducts()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
@@ -33,10 +33,15 @@ namespace ContosoCrafts.Services
 
         public void AddRating(string productId, int rating)
         {
-            IEnumerable<Product> products = GetProducts();
+            IEnumerable<Product>? products = GetProducts();
+            if(products is null) throw new Exception("Null database!!");
+
             var product = products.First(x => x.Id == productId);
 
-            if(product.Ratings is null) new List<int>(rating);
+            if(product.Ratings is null)
+            {
+                product.Ratings = new(rating);
+            }
 
             product.Ratings.Add(rating);
 
