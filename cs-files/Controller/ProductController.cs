@@ -27,9 +27,7 @@ public class ProductController : ControllerBase
 
     [Route("rate")]
     [HttpPut("{id}")]
-    // localhost:5262/product/rate?productid="jenlooper-cactus"&rating=4
-
-    // Verificar, ID retordana no URL está assim "\"jenlooper-cactus\""
+    // localhost:5262/product/rate?productid=jenlooper-cactus&rating=4
     public ActionResult Put(
         [FromQuery] string productId,
         [FromQuery] int rating)
