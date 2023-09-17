@@ -19,6 +19,6 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-        Products = ProductService.GetProducts();
+
     }
 }
