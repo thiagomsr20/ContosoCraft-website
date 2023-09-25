@@ -101,7 +101,10 @@
         {
             // O erro é que está tentando dividir por zero, por que os ratings estao vazios no database
             voteCount = selectedProduct.Ratings.Count();
+            if(voteCount == 0) voteCount = 1;
             voteLabel = voteCount > 1 ? "Votes" : "Vote";
+
+            // Média das avaliações, dvidir a soma dos valores pela quantidade
             currentRating = selectedProduct.Ratings.Sum() / voteCount;
         }
 
