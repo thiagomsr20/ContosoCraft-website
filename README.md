@@ -1,1 +1,1 @@
-Testando Blazor e Razor pages com o treinamento da Microsoft
+Treinamento da Microsoft com Blazor e Razor pages
